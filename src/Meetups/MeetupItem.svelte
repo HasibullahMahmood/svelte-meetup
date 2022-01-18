@@ -33,15 +33,14 @@
 		<p>{description}</p>
 	</div>
 	<footer>
-		<Button href="mailto:{email}" caption="Contact" />
+		<Button href="mailto:{email}">Contact</Button>
 		<Button
 			mode="outline"
 			color={isFavorite ? '' : 'success'}
 			type="button"
-			caption={isFavorite ? 'Unfavorite' : 'Favorite'}
-			on:click={() => dispatch('toggleFavorite', id)}
-		/>
-		<Button type="button" caption="Show Details" />
+			on:click={() => dispatch('toggleFavorite', id)}>{isFavorite ? 'Unfavorite' : 'Favorite'}</Button
+		>
+		<Button type="button">Show Details</Button>
 	</footer>
 </article>
 

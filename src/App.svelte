@@ -53,14 +53,18 @@
 		newMeetups[index].isFavorite = !newMeetups[index].isFavorite;
 		meetups = newMeetups;
 	};
+
+	const cancel = () => {
+		formMode = null;
+	};
 </script>
 
 <Header />
 
 <main>
-	<div class="button"><Button caption="New Meetup" on:click={() => (formMode = 'edit')} /></div>
+	<div class="button"><Button on:click={() => (formMode = 'edit')}>New Meetup</Button></div>
 	{#if formMode}
-		<EditMeetup on:save={addMeetup} />
+		<EditMeetup on:save={addMeetup} on:cancel={cancel} />
 	{/if}
 	<MeetupGrid {meetups} on:toggleFavorite={toggleFavorite} />
 </main>
